@@ -1,0 +1,49 @@
+// ao invés de muitos argumentos, passar um obj inteiro e consumi-lo 
+//trocar números mágicos por constantes
+
+const GRAVITY:number = 9.81;
+
+fn calculatePotencialEnergy(mass:number, height:number): number{
+    return mass * GRAVITY * height;
+}
+
+fn getClass(element){
+    return (element.buttonClass) ? element.buttonClass : 'btn-lg';      //ternary
+    return element.buttonClass || 'btn-lg';             // or
+}
+
+
+/////
+class Employee {
+    amount:number;
+
+    constructor (amount:number){
+        this.amount = amount
+    }
+
+    abstract calculateCost(); //prevê comportamento;
+}
+
+Class EmployeeCLT extends Employee{
+    constructor(amount){
+        super(amount)
+    }
+
+    calculateCost(){
+        const inss = amount * 0.03;
+        const fgts = amount/12;
+        const vouchers = 1000;
+        return inss + fgts + vouchers;
+    }
+}
+
+//lançar exceção
+
+class RepositoryDatabase{
+
+    getCustomer(id){
+        const customer = await db.oneOrNone("SELECT * FROM customer WHERE id = $1", [id]);
+        if(!customer) throw new CustumerNotFound(id);
+    }
+}
+
